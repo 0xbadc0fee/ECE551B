@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Title <code>[1/1]</code>](#org396ab91)
-2.  [Abstract <code>[1/1]</code>](#orge2fe704)
-3.  [Index Terms <code>[1/1]</code>](#org7256c09)
-4.  [Introduction <code>[6/6]</code>](#orgd7aea87)
-5.  [Background <code>[3/3]</code>](#org5e6c6f7)
-6.  [Methods & Materials <code>[0/0]</code>](#orgf99fe35)
-    1.  [General ML Workflow <code>[0/3]</code>](#org0a50174)
-    2.  [Specific ML Workflow <code>[0/3]</code>](#orge5b65bf)
-    3.  [Specific Analysis Methods <code>[0/4]</code>](#org5f8c578)
-7.  [Results](#org54c6fd3)
-8.  [Discussion](#org79fef15)
-9.  [Conclusion](#org7e8d8e8)
-10. [Appendix](#orgb7c8a82)
-11. [Bibliography](#org7370d14)
+1.  [Title <code>[1/1]</code>](#org2b55b06)
+2.  [Abstract <code>[1/1]</code>](#org8e4e9c8)
+3.  [Index Terms <code>[1/1]</code>](#org535bb5f)
+4.  [Introduction <code>[6/6]</code>](#org51ca608)
+5.  [Background <code>[3/3]</code>](#org319885e)
+6.  [Methods & Materials <code>[0/0]</code>](#orgd3d0bdc)
+    1.  [General ML Workflow <code>[0/3]</code>](#org47f48f4)
+    2.  [Specific ML Workflow <code>[0/3]</code>](#org54b04fc)
+    3.  [Specific Analysis Methods <code>[0/4]</code>](#orga352fe0)
+7.  [Results](#org1ac173c)
+8.  [Discussion](#orgf43ebc6)
+9.  [Conclusion](#orgaa8a4d6)
+10. [Appendix](#org55b058d)
+11. [Bibliography](#org617b27f)
 
 
 
-<a id="org396ab91"></a>
+<a id="org2b55b06"></a>
 
 # Title <code>[1/1]</code>
 
@@ -27,7 +27,7 @@
     A proposed automatic in-situ acoustic anomaly detection method for the condition monitoring of remote vertical turbine pump stations
 
 
-<a id="orge2fe704"></a>
+<a id="org8e4e9c8"></a>
 
 # Abstract <code>[1/1]</code>
 
@@ -40,7 +40,7 @@
     What we propose here is an automatic system that can be installed near, but not interfere with, such pump stations, outside of the control loop, which can monitor for and report on operation anomalies through the detection of acoustic anomalies during station operation.
 
 
-<a id="org7256c09"></a>
+<a id="org535bb5f"></a>
 
 # Index Terms <code>[1/1]</code>
 
@@ -49,7 +49,7 @@
     Acoustic emission, Anomaly detection, Machine learning, Condition monitoring, Real-time, Signal Processing, Spectrogram, Acoustic signal processing, Embedded systems, 
 
 
-<a id="orgd7aea87"></a>
+<a id="org51ca608"></a>
 
 # Introduction <code>[6/6]</code>
 
@@ -78,7 +78,7 @@
     Detection and recognition are two different applications of machine learning often requiring different algorithms as well as specially labeled data sets.  They can though be built on shared archictecture if planned early on in the process.  Typically, detection is a binary classification where recognition is more often a multiclass classification.  An example of detection use in vertical pump stations would be logging whether sound current acoustic emissions are likely within expected ranges or outside of expected ranges.  Likewise, a possible recognition algorithm may attempt to classify detected anomalies as being within such categories as: cavitation, bearing wear, debri ingest, or other mechanical failure.
 
 
-<a id="org5e6c6f7"></a>
+<a id="org319885e"></a>
 
 # Background <code>[3/3]</code>
 
@@ -106,7 +106,7 @@
 -   [X] Justify Acoustic Approach / Selection
 
 
-<a id="orgf99fe35"></a>
+<a id="orgd3d0bdc"></a>
 
 # Methods & Materials <code>[0/0]</code>
 
@@ -117,7 +117,7 @@
 -   <https://www.mdpi.com/2079-9292/10/19/2329>
 
 
-<a id="org0a50174"></a>
+<a id="org47f48f4"></a>
 
 ## General ML Workflow <code>[0/3]</code>
 
@@ -134,7 +134,7 @@
     [GENERAL DEPLOY CONTENT]
 
 
-<a id="orge5b65bf"></a>
+<a id="org54b04fc"></a>
 
 ## Specific ML Workflow <code>[0/3]</code>
 
@@ -150,7 +150,13 @@
         -   [ ] Signal conditioning? (trimming, cleaning, filtering)
         -   [ ] Signal conversion? (convert audio to graphical spectrograms, circular plots?)
 
-    [SPECIFIC DATA METHODS CONTENT]
+    This project will leverage the data collected as part of the 2020 Detection and Classification of Acoustic Scenes and Events (DCASE) challenge.  The DCASE challeng is an annual challenge organized by Queen Mary University of London (QMUL).  Since 2013, every year (except for a 2 year hiatus) a new challenge in environmental sound classification has been presented for public competition.  Task #2 of the 2020 DCASE challenge was to develop a method for the "Unsupervised Detection of Anomalous Sounds for Machine Condition Monitoring".  The dataset compiled for this task was comprised of parts of two earlier datasets, the ToyADMOS and MIMII datasets.  This dataset is now known as the DCASE2020 dataset and is provided in three parts; development data, training data, and evaluation data.
+    
+    The DCASE2020 dataset consists of recordings of both nominal and anomalous operating sounds of six different types of machines; Toy-car, Toy-conveyor, Valves, Pumps, Fans, and Slide rails [cite].  Each sample is a 10 second long recording over a single audio channel that include both the machine's target sound and environmental noise.
+    
+    The recordings from the ToyADMOS dataset were captured using four microphones and those from the MIMII dataset were captured using eight microphones.  The sampling rate of each recording has been downsampled to 16 kHz.  Each machine type has 3-4 representitive Machine ID's.  In the development data set,each Machine ID, there consists of around 1,000 samples of nominal operation for training and 100-200 samples of anomalous sounds [cite, dcase2020 url].  In the evaluation dataset the number of test samples for each machine ID is around 400.
+    
+    The DCASE2020 dataset will also serve as a model for constructing real world data acquisition of vertical turbine pump stations.  That is, the recording will be done with between 4 to 8 microphones, span around 10 seconds each, and though recorded at higher frequencies, be downsampled to 16 kHz just as the DCASE recordings are.
 
 -   [ ] **Model:** Specific Methods
     -   [ ] Algorithm&#x2026;
@@ -163,7 +169,7 @@
     [SPECIFIC DEPLOY METHODS CONTENT]
 
 
-<a id="org5f8c578"></a>
+<a id="orga352fe0"></a>
 
 ## Specific Analysis Methods <code>[0/4]</code>
 
@@ -173,27 +179,27 @@
 -   [ ] Discuss End User Interaction, HMI ?
 
 
-<a id="org54c6fd3"></a>
+<a id="org1ac173c"></a>
 
 # Results
 
 
-<a id="org79fef15"></a>
+<a id="orgf43ebc6"></a>
 
 # Discussion
 
 
-<a id="org7e8d8e8"></a>
+<a id="orgaa8a4d6"></a>
 
 # Conclusion
 
 
-<a id="orgb7c8a82"></a>
+<a id="org55b058d"></a>
 
 # Appendix
 
 
-<a id="org7370d14"></a>
+<a id="org617b27f"></a>
 
 # Bibliography
 
