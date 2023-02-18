@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Title <code>[1/1]</code>](#orgb18cdec)
-2.  [Abstract <code>[1/1]</code>](#org2540ccc)
-3.  [Index Terms <code>[1/1]</code>](#org17d4bd7)
-4.  [Introduction <code>[6/6]</code>](#orgf32eaab)
-5.  [Background <code>[3/3]</code>](#org59c9e09)
-6.  [Methods & Materials <code>[0/0]</code>](#orga6f558d)
-    1.  [General ML Workflow <code>[0/3]</code>](#orgb399a3f)
-    2.  [Specific ML Workflow <code>[0/3]</code>](#org558f24f)
-    3.  [Specific Analysis Methods <code>[0/4]</code>](#org65806d2)
-7.  [Results](#org49e1cf6)
-8.  [Discussion](#orgc78a95f)
-9.  [Conclusion](#orga269fce)
-10. [Appendix](#org9d1aa7e)
-11. [Bibliography](#org0fa5c67)
+1.  [Title <code>[1/1]</code>](#org67f14b3)
+2.  [Abstract <code>[1/1]</code>](#orgce84973)
+3.  [Index Terms <code>[1/1]</code>](#org44e382f)
+4.  [Introduction <code>[6/6]</code>](#orgad058ed)
+5.  [Background <code>[3/3]</code>](#org4833963)
+6.  [Methods & Materials <code>[0/0]</code>](#orgf503e8d)
+    1.  [General ML Workflow <code>[0/3]</code>](#orgc369bb9)
+    2.  [Specific ML Workflow <code>[0/3]</code>](#org00f2da4)
+    3.  [Specific Analysis Methods <code>[0/4]</code>](#orga88610f)
+7.  [Results](#orga9fdcaf)
+8.  [Discussion](#orgd62b15f)
+9.  [Conclusion](#org4e20cf6)
+10. [Appendix](#orga3af753)
+11. [Bibliography](#org2f4437a)
 
 
 
-<a id="orgb18cdec"></a>
+<a id="org67f14b3"></a>
 
 # Title <code>[1/1]</code>
 
@@ -27,7 +27,7 @@
     A proposed automatic in-situ acoustic anomaly detection method for the condition monitoring of remote vertical turbine pump stations
 
 
-<a id="org2540ccc"></a>
+<a id="orgce84973"></a>
 
 # Abstract <code>[1/1]</code>
 
@@ -40,7 +40,7 @@
     What we propose here is an automatic system that can be installed near, but not interfere with, such pump stations, outside of the control loop, which can monitor for and report on operation anomalies through the detection of acoustic anomalies during station operation.
 
 
-<a id="org17d4bd7"></a>
+<a id="org44e382f"></a>
 
 # Index Terms <code>[1/1]</code>
 
@@ -49,7 +49,7 @@
     Acoustic emission, Anomaly detection, Machine learning, Condition monitoring, Real-time, Signal Processing, Spectrogram, Acoustic signal processing, Embedded systems, 
 
 
-<a id="orgf32eaab"></a>
+<a id="orgad058ed"></a>
 
 # Introduction <code>[6/6]</code>
 
@@ -82,7 +82,7 @@
     Detection and recognition are two different applications of machine learning often requiring different algorithms as well as specially labeled data sets.  They can though be built on shared archictecture if planned early on in the process.  Typically, detection is a binary classification where recognition is more often a multiclass classification.  An example of detection use in vertical pump stations would be logging whether sound current acoustic emissions are likely within expected ranges or outside of expected ranges.  Likewise, a possible recognition algorithm may attempt to classify detected anomalies as being within such categories as: cavitation, bearing wear, debri ingest, or other mechanical failure.
 
 
-<a id="org59c9e09"></a>
+<a id="org4833963"></a>
 
 # Background <code>[3/3]</code>
 
@@ -110,7 +110,7 @@
 -   [X] Justify Acoustic Approach / Selection
 
 
-<a id="orga6f558d"></a>
+<a id="orgf503e8d"></a>
 
 # Methods & Materials <code>[0/0]</code>
 
@@ -121,7 +121,7 @@
 -   <https://www.mdpi.com/2079-9292/10/19/2329>
 
 
-<a id="orgb399a3f"></a>
+<a id="orgc369bb9"></a>
 
 ## General ML Workflow <code>[0/3]</code>
 
@@ -138,7 +138,7 @@
     [GENERAL DEPLOY CONTENT]
 
 
-<a id="org558f24f"></a>
+<a id="org00f2da4"></a>
 
 ## Specific ML Workflow <code>[0/3]</code>
 
@@ -173,7 +173,7 @@
     [SPECIFIC DEPLOY METHODS CONTENT]
 
 
-<a id="org65806d2"></a>
+<a id="orga88610f"></a>
 
 ## Specific Analysis Methods <code>[0/4]</code>
 
@@ -183,27 +183,27 @@
 -   [ ] Discuss End User Interaction, HMI ?
 
 
-<a id="org49e1cf6"></a>
+<a id="orga9fdcaf"></a>
 
 # Results
 
 
-<a id="orgc78a95f"></a>
+<a id="orgd62b15f"></a>
 
 # Discussion
 
 
-<a id="orga269fce"></a>
+<a id="org4e20cf6"></a>
 
 # Conclusion
 
 
-<a id="org9d1aa7e"></a>
+<a id="orga3af753"></a>
 
 # Appendix
 
 
-<a id="org0fa5c67"></a>
+<a id="org2f4437a"></a>
 
 # Bibliography
 
