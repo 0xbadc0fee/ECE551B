@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Title <code>[1/1]</code>](#org67f14b3)
-2.  [Abstract <code>[1/1]</code>](#orgce84973)
-3.  [Index Terms <code>[1/1]</code>](#org44e382f)
-4.  [Introduction <code>[6/6]</code>](#orgad058ed)
-5.  [Background <code>[3/3]</code>](#org4833963)
-6.  [Methods & Materials <code>[0/0]</code>](#orgf503e8d)
-    1.  [General ML Workflow <code>[0/3]</code>](#orgc369bb9)
-    2.  [Specific ML Workflow <code>[0/3]</code>](#org00f2da4)
-    3.  [Specific Analysis Methods <code>[0/4]</code>](#orga88610f)
-7.  [Results](#orga9fdcaf)
-8.  [Discussion](#orgd62b15f)
-9.  [Conclusion](#org4e20cf6)
-10. [Appendix](#orga3af753)
-11. [Bibliography](#org2f4437a)
+1.  [Title <code>[1/1]</code>](#org28df129)
+2.  [Abstract <code>[1/1]</code>](#org110f447)
+3.  [Index Terms <code>[1/1]</code>](#org828c680)
+4.  [Introduction <code>[6/6]</code>](#org7ade47a)
+5.  [Background <code>[3/3]</code>](#org8bc41be)
+6.  [Methods & Materials <code>[0/0]</code>](#orgac18694)
+    1.  [General ML Workflow <code>[0/3]</code>](#org97ccce0)
+    2.  [Specific ML Workflow <code>[0/3]</code>](#orgeab1bf9)
+    3.  [Specific Analysis Methods <code>[0/4]</code>](#org2e9fd03)
+7.  [Results](#org35322e8)
+8.  [Discussion](#orgfc0b0d6)
+9.  [Conclusion](#org4858c89)
+10. [Appendix](#orgf5fca76)
+11. [Bibliography](#orgba10f67)
 
 
 
-<a id="org67f14b3"></a>
+<a id="org28df129"></a>
 
 # Title <code>[1/1]</code>
 
@@ -27,7 +27,7 @@
     A proposed automatic in-situ acoustic anomaly detection method for the condition monitoring of remote vertical turbine pump stations
 
 
-<a id="orgce84973"></a>
+<a id="org110f447"></a>
 
 # Abstract <code>[1/1]</code>
 
@@ -40,7 +40,7 @@
     What we propose here is an automatic system that can be installed near, but not interfere with, such pump stations, outside of the control loop, which can monitor for and report on operation anomalies through the detection of acoustic anomalies during station operation.
 
 
-<a id="org44e382f"></a>
+<a id="org828c680"></a>
 
 # Index Terms <code>[1/1]</code>
 
@@ -49,7 +49,7 @@
     Acoustic emission, Anomaly detection, Machine learning, Condition monitoring, Real-time, Signal Processing, Spectrogram, Acoustic signal processing, Embedded systems, 
 
 
-<a id="orgad058ed"></a>
+<a id="org7ade47a"></a>
 
 # Introduction <code>[6/6]</code>
 
@@ -63,13 +63,13 @@
 
 -   [X] **C:** Vertical Turbine Pumps
 
-![img](./img/HI0818-Image-1-2.jpg)
+![img](./img/HI0818-Image-1-2.jpg)   
 
     A single Vertical turbine pump consists of the following elements, typically found from bottom (input) to top (output): a suction filter or screen, a series of pump stages called the bowl assembly, the column assembly, and finally the head assembly.  Mounted atop the head assembly is an electric motor.  The motor is coupled to a drive shaft that extends the full length of the column and bowl assemblies.  This drive shaft turns the impellers housed inside the bowls of the bowl assemby.  The number of bowl assemblies varies depending on purpose and design of the system.  The electric motors atop the pumps are typically connected to a variable frequency drive, which is itself most often connect to a programmable logic controller.  A typical VFD & PLC installation will often provide a number of feedback parameters for use by the operators.  At a minimum, operators usually have visibility on amerage draw, voltage, line frequency, and motor rpm.  Depending on installation, additional monitoring parameters may include fluid flow, temperature measurements, and pressure readings.  Vertical turbine pumps can be run individually or in tandem within a large array of such pumps.
 
 -   [X] **D:** Multi Unit Pump Stations
 
-![img](./img/pumpsBW.png)
+![img](./img/pumpsBW.png)   
 
     A vertical turbine pump station represents a system in which multiple vertical turbine pumps are linked together.  These stations draw input water from the same source, and combine the outputs into a common manifold or reservoir depending on design.  During operation, depending on demand, the number of pumps engaged may range from all, to some, or even just one.  These pump stations are usually very large, remotely located, and quite loud when in full operation.  As crop growing cycles are inflexibly linked to annual cycles, and absence of water can permanently alter soil conditions not just reduce crop growth; uptime availability of these systems is considered extremely critical.  Standard operating procedures involve predictive maintenance and rebuilds of individual pumps during non-growing seasons.  Year to year, the operators of these systems will select a number of pumps to be removed and sent to machine shops that specialize in the teardown, inspection, repair, re-assembly, testing, and installation of such pumps.  The down time for a full rebuild is typically measured in months.  Even when scheduled in advance, the rebuild process is time consuming and costly.
 
@@ -82,7 +82,7 @@
     Detection and recognition are two different applications of machine learning often requiring different algorithms as well as specially labeled data sets.  They can though be built on shared archictecture if planned early on in the process.  Typically, detection is a binary classification where recognition is more often a multiclass classification.  An example of detection use in vertical pump stations would be logging whether sound current acoustic emissions are likely within expected ranges or outside of expected ranges.  Likewise, a possible recognition algorithm may attempt to classify detected anomalies as being within such categories as: cavitation, bearing wear, debri ingest, or other mechanical failure.
 
 
-<a id="org4833963"></a>
+<a id="org8bc41be"></a>
 
 # Background <code>[3/3]</code>
 
@@ -110,7 +110,7 @@
 -   [X] Justify Acoustic Approach / Selection
 
 
-<a id="orgf503e8d"></a>
+<a id="orgac18694"></a>
 
 # Methods & Materials <code>[0/0]</code>
 
@@ -121,13 +121,16 @@
 -   <https://www.mdpi.com/2079-9292/10/19/2329>
 
 
-<a id="orgc369bb9"></a>
+<a id="org97ccce0"></a>
 
 ## General ML Workflow <code>[0/3]</code>
 
 -   [ ] Data Engineering
 
+![img](./img/2023-02-17_15h10_17.png)   
+
     [GENERAL DATA CONTENT]
+    [[file:./img/2023-02-17_15h10_17.png]]
 
 -   [ ] Model Engineering
 
@@ -138,7 +141,7 @@
     [GENERAL DEPLOY CONTENT]
 
 
-<a id="org00f2da4"></a>
+<a id="orgeab1bf9"></a>
 
 ## Specific ML Workflow <code>[0/3]</code>
 
@@ -173,7 +176,7 @@
     [SPECIFIC DEPLOY METHODS CONTENT]
 
 
-<a id="orga88610f"></a>
+<a id="org2e9fd03"></a>
 
 ## Specific Analysis Methods <code>[0/4]</code>
 
@@ -183,27 +186,27 @@
 -   [ ] Discuss End User Interaction, HMI ?
 
 
-<a id="orga9fdcaf"></a>
+<a id="org35322e8"></a>
 
 # Results
 
 
-<a id="orgd62b15f"></a>
+<a id="orgfc0b0d6"></a>
 
 # Discussion
 
 
-<a id="org4e20cf6"></a>
+<a id="org4858c89"></a>
 
 # Conclusion
 
 
-<a id="orga3af753"></a>
+<a id="orgf5fca76"></a>
 
 # Appendix
 
 
-<a id="org2f4437a"></a>
+<a id="orgba10f67"></a>
 
 # Bibliography
 
