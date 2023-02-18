@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Title <code>[1/1]</code>](#org2b55b06)
-2.  [Abstract <code>[1/1]</code>](#org8e4e9c8)
-3.  [Index Terms <code>[1/1]</code>](#org535bb5f)
-4.  [Introduction <code>[6/6]</code>](#org51ca608)
-5.  [Background <code>[3/3]</code>](#org319885e)
-6.  [Methods & Materials <code>[0/0]</code>](#orgd3d0bdc)
-    1.  [General ML Workflow <code>[0/3]</code>](#org47f48f4)
-    2.  [Specific ML Workflow <code>[0/3]</code>](#org54b04fc)
-    3.  [Specific Analysis Methods <code>[0/4]</code>](#orga352fe0)
-7.  [Results](#org1ac173c)
-8.  [Discussion](#orgf43ebc6)
-9.  [Conclusion](#orgaa8a4d6)
-10. [Appendix](#org55b058d)
-11. [Bibliography](#org617b27f)
+1.  [Title <code>[1/1]</code>](#org36d48c9)
+2.  [Abstract <code>[1/1]</code>](#org30eb607)
+3.  [Index Terms <code>[1/1]</code>](#org3e2b8e0)
+4.  [Introduction <code>[6/6]</code>](#org72e569b)
+5.  [Background <code>[3/3]</code>](#org24665d9)
+6.  [Methods & Materials <code>[0/0]</code>](#orgce9c39a)
+    1.  [General ML Workflow <code>[0/3]</code>](#org2d8071f)
+    2.  [Specific ML Workflow <code>[0/3]</code>](#orgb99aab4)
+    3.  [Specific Analysis Methods <code>[0/4]</code>](#org7d9dd79)
+7.  [Results](#orgd1eecc8)
+8.  [Discussion](#org8e126ac)
+9.  [Conclusion](#orgf3f87c9)
+10. [Appendix](#orgf7babb7)
+11. [Bibliography](#org1d03a54)
 
 
 
-<a id="org2b55b06"></a>
+<a id="org36d48c9"></a>
 
 # Title <code>[1/1]</code>
 
@@ -27,7 +27,7 @@
     A proposed automatic in-situ acoustic anomaly detection method for the condition monitoring of remote vertical turbine pump stations
 
 
-<a id="org8e4e9c8"></a>
+<a id="org30eb607"></a>
 
 # Abstract <code>[1/1]</code>
 
@@ -40,7 +40,7 @@
     What we propose here is an automatic system that can be installed near, but not interfere with, such pump stations, outside of the control loop, which can monitor for and report on operation anomalies through the detection of acoustic anomalies during station operation.
 
 
-<a id="org535bb5f"></a>
+<a id="org3e2b8e0"></a>
 
 # Index Terms <code>[1/1]</code>
 
@@ -49,7 +49,7 @@
     Acoustic emission, Anomaly detection, Machine learning, Condition monitoring, Real-time, Signal Processing, Spectrogram, Acoustic signal processing, Embedded systems, 
 
 
-<a id="org51ca608"></a>
+<a id="org72e569b"></a>
 
 # Introduction <code>[6/6]</code>
 
@@ -62,6 +62,8 @@
     Today much of that lifting work is done through the use of Vertical Turbine Pumps.  A vertical turbine pump is a type of centrifugal pump built to be submerged in water \cite{scherer1993irrigation}, are driven by direct mounted electric motors, and capable of lifting large volumes of water at greater efficiencies than traditional centrifugal pumps.  Vertical turbine pumps can be found in many different sizes and applications.  Because of their efficency, almost all large scale irrigation systems rely on vertical turbine pump technology.
 
 -   [X] **C:** Vertical Turbine Pumps
+
+![img](../img/pumpsBW.png)
 
     A single Vertical turbine pump consists of the following elements, typically found from bottom (input) to top (output): a suction filter or screen, a series of pump stages called the bowl assembly, the column assembly, and finally the head assembly.  Mounted atop the head assembly is an electric motor.  The motor is coupled to a drive shaft that extends the full length of the column and bowl assemblies.  This drive shaft turns the impellers housed inside the bowls of the bowl assemby.  The number of bowl assemblies varies depending on purpose and design of the system.  The electric motors atop the pumps are typically connected to a variable frequency drive, which is itself most often connect to a programmable logic controller.  A typical VFD & PLC installation will often provide a number of feedback parameters for use by the operators.  At a minimum, operators usually have visibility on amerage draw, voltage, line frequency, and motor rpm.  Depending on installation, additional monitoring parameters may include fluid flow, temperature measurements, and pressure readings.  Vertical turbine pumps can be run individually or in tandem within a large array of such pumps.
 
@@ -78,7 +80,7 @@
     Detection and recognition are two different applications of machine learning often requiring different algorithms as well as specially labeled data sets.  They can though be built on shared archictecture if planned early on in the process.  Typically, detection is a binary classification where recognition is more often a multiclass classification.  An example of detection use in vertical pump stations would be logging whether sound current acoustic emissions are likely within expected ranges or outside of expected ranges.  Likewise, a possible recognition algorithm may attempt to classify detected anomalies as being within such categories as: cavitation, bearing wear, debri ingest, or other mechanical failure.
 
 
-<a id="org319885e"></a>
+<a id="org24665d9"></a>
 
 # Background <code>[3/3]</code>
 
@@ -106,7 +108,7 @@
 -   [X] Justify Acoustic Approach / Selection
 
 
-<a id="orgd3d0bdc"></a>
+<a id="orgce9c39a"></a>
 
 # Methods & Materials <code>[0/0]</code>
 
@@ -117,7 +119,7 @@
 -   <https://www.mdpi.com/2079-9292/10/19/2329>
 
 
-<a id="org47f48f4"></a>
+<a id="org2d8071f"></a>
 
 ## General ML Workflow <code>[0/3]</code>
 
@@ -134,7 +136,7 @@
     [GENERAL DEPLOY CONTENT]
 
 
-<a id="org54b04fc"></a>
+<a id="orgb99aab4"></a>
 
 ## Specific ML Workflow <code>[0/3]</code>
 
@@ -169,7 +171,7 @@
     [SPECIFIC DEPLOY METHODS CONTENT]
 
 
-<a id="orga352fe0"></a>
+<a id="org7d9dd79"></a>
 
 ## Specific Analysis Methods <code>[0/4]</code>
 
@@ -179,27 +181,27 @@
 -   [ ] Discuss End User Interaction, HMI ?
 
 
-<a id="org1ac173c"></a>
+<a id="orgd1eecc8"></a>
 
 # Results
 
 
-<a id="orgf43ebc6"></a>
+<a id="org8e126ac"></a>
 
 # Discussion
 
 
-<a id="orgaa8a4d6"></a>
+<a id="orgf3f87c9"></a>
 
 # Conclusion
 
 
-<a id="org55b058d"></a>
+<a id="orgf7babb7"></a>
 
 # Appendix
 
 
-<a id="org617b27f"></a>
+<a id="org1d03a54"></a>
 
 # Bibliography
 

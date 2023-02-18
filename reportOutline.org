@@ -39,6 +39,7 @@ Today much of that lifting work is done through the use of Vertical Turbine Pump
 
 	  	
 - [X] C :: Vertical Turbine Pumps
+[[file:../img/pumpsBW.png]]
 #+BEGIN_EXAMPLE
 A single Vertical turbine pump consists of the following elements, typically found from bottom (input) to top (output): a suction filter or screen, a series of pump stages called the bowl assembly, the column assembly, and finally the head assembly.  Mounted atop the head assembly is an electric motor.  The motor is coupled to a drive shaft that extends the full length of the column and bowl assemblies.  This drive shaft turns the impellers housed inside the bowls of the bowl assemby.  The number of bowl assemblies varies depending on purpose and design of the system.  The electric motors atop the pumps are typically connected to a variable frequency drive, which is itself most often connect to a programmable logic controller.  A typical VFD & PLC installation will often provide a number of feedback parameters for use by the operators.  At a minimum, operators usually have visibility on amerage draw, voltage, line frequency, and motor rpm.  Depending on installation, additional monitoring parameters may include fluid flow, temperature measurements, and pressure readings.  Vertical turbine pumps can be run individually or in tandem within a large array of such pumps.
 #+END_EXAMPLE
@@ -111,7 +112,13 @@ Based on that criteria some available technologies include vibration analysis, e
     - [ ] Signal conditioning? (trimming, cleaning, filtering)
     - [ ] Signal conversion? (convert audio to graphical spectrograms, circular plots?)
 #+begin_example
-[SPECIFIC DATA METHODS CONTENT]
+This project will leverage the data collected as part of the 2020 Detection and Classification of Acoustic Scenes and Events (DCASE) challenge.  The DCASE challeng is an annual challenge organized by Queen Mary University of London (QMUL).  Since 2013, every year (except for a 2 year hiatus) a new challenge in environmental sound classification has been presented for public competition.  Task #2 of the 2020 DCASE challenge was to develop a method for the "Unsupervised Detection of Anomalous Sounds for Machine Condition Monitoring".  The dataset compiled for this task was comprised of parts of two earlier datasets, the ToyADMOS and MIMII datasets.  This dataset is now known as the DCASE2020 dataset and is provided in three parts; development data, training data, and evaluation data.
+
+The DCASE2020 dataset consists of recordings of both nominal and anomalous operating sounds of six different types of machines; Toy-car, Toy-conveyor, Valves, Pumps, Fans, and Slide rails [cite].  Each sample is a 10 second long recording over a single audio channel that include both the machine's target sound and environmental noise.
+
+The recordings from the ToyADMOS dataset were captured using four microphones and those from the MIMII dataset were captured using eight microphones.  The sampling rate of each recording has been downsampled to 16 kHz.  Each machine type has 3-4 representitive Machine ID's.  In the development data set,each Machine ID, there consists of around 1,000 samples of nominal operation for training and 100-200 samples of anomalous sounds [cite, dcase2020 url].  In the evaluation dataset the number of test samples for each machine ID is around 400.
+
+The DCASE2020 dataset will also serve as a model for constructing real world data acquisition of vertical turbine pump stations.  That is, the recording will be done with between 4 to 8 microphones, span around 10 seconds each, and though recorded at higher frequencies, be downsampled to 16 kHz just as the DCASE recordings are.
 #+end_example
 - [ ] Model :: Specific Methods
   - [ ] Algorithm...
