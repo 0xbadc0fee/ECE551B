@@ -39,7 +39,8 @@ Today much of that lifting work is done through the use of Vertical Turbine Pump
 
 
 - [X] C :: Vertical Turbine Pumps
-
+#+attr_html: :width 100px
+#+attr_latex: :width 100px
 [[file:./img/HI0818-Image-1-2.jpg]]
 
 #+BEGIN_EXAMPLE
@@ -47,7 +48,8 @@ A single Vertical turbine pump consists of the following elements, typically fou
 #+END_EXAMPLE
 
 - [X] D :: Multi Unit Pump Stations
-
+#+attr_html: :width 100px
+#+attr_latex: :width 100px
 [[file:./img/pumpsBW.png]]
 
 #+BEGIN_EXAMPLE
