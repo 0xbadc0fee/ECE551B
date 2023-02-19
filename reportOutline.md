@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Title <code>[1/1]</code>](#org2f0bc71)
-2.  [Abstract <code>[1/1]</code>](#orgbeceebc)
-3.  [Index Terms <code>[1/1]</code>](#orgf8162ff)
-4.  [Introduction <code>[6/6]</code>](#orgfdc4b7e)
-5.  [Background <code>[5/5]</code>](#orgb2f4007)
-6.  [Methods & Materials <code>[0/0]</code>](#org2173330)
-    1.  [General ML Workflow <code>[0/3]</code>](#org2f9afca)
-    2.  [Specific ML Workflow <code>[0/3]</code>](#org2beff90)
-    3.  [Specific Analysis Methods <code>[0/4]</code>](#org923e8e4)
-7.  [Results](#orge439397)
-8.  [Discussion](#org7defabf)
-9.  [Conclusion](#org3fb3b4f)
-10. [Appendix](#orgd8a1710)
-11. [Bibliography](#org72e30db)
+1.  [Title <code>[1/1]</code>](#orgbb5d449)
+2.  [Abstract <code>[1/1]</code>](#org82d0c8e)
+3.  [Index Terms <code>[1/1]</code>](#org69d6d89)
+4.  [Introduction <code>[6/6]</code>](#orga5303ab)
+5.  [Background <code>[5/5]</code>](#orgdd870e7)
+6.  [Methods & Materials <code>[0/0]</code>](#orgf5f41cf)
+    1.  [General ML Workflow <code>[0/3]</code>](#org8d8fea4)
+    2.  [Specific ML Workflow <code>[0/3]</code>](#org71de553)
+    3.  [Specific Analysis Methods <code>[0/4]</code>](#org937dd27)
+7.  [Results](#orgcd65d55)
+8.  [Discussion](#orgabfd948)
+9.  [Conclusion](#org6dc90b7)
+10. [Appendix](#org84efa7c)
+11. [Bibliography](#org6d69ecc)
 
 
 
-<a id="org2f0bc71"></a>
+<a id="orgbb5d449"></a>
 
 # Title <code>[1/1]</code>
 
@@ -27,7 +27,7 @@
     A proposed automatic in-situ acoustic anomaly detection method for the condition monitoring of remote vertical turbine pump stations
 
 
-<a id="orgbeceebc"></a>
+<a id="org82d0c8e"></a>
 
 # Abstract <code>[1/1]</code>
 
@@ -40,7 +40,7 @@
     What we propose here is an automatic system that can be installed near, but not interfere with, such pump stations, outside of the control loop, which can monitor for and report on operation anomalies through the detection of acoustic anomalies during station operation.
 
 
-<a id="orgf8162ff"></a>
+<a id="org69d6d89"></a>
 
 # Index Terms <code>[1/1]</code>
 
@@ -49,7 +49,7 @@
     Acoustic emission, Anomaly detection, Machine learning, Condition monitoring, Real-time, Signal Processing, Spectrogram, Acoustic signal processing, Embedded systems, 
 
 
-<a id="orgfdc4b7e"></a>
+<a id="orga5303ab"></a>
 
 # Introduction <code>[6/6]</code>
 
@@ -63,13 +63,13 @@
 
 -   [X] **C:** Vertical Turbine Pumps
 
-![img](./img/HI0818-Image-1-2.jpg)   
+[[![img](./img/HI0818-Image-1-2.jpg)]]
 
     A single Vertical turbine pump consists of the following elements, typically found from bottom (input) to top (output): a suction filter or screen, a series of pump stages called the bowl assembly, the column assembly, and finally the head assembly.  Mounted atop the head assembly is an electric motor.  The motor is coupled to a drive shaft that extends the full length of the column and bowl assemblies.  This drive shaft turns the impellers housed inside the bowls of the bowl assemby.  The number of bowl assemblies varies depending on purpose and design of the system.  The electric motors atop the pumps are typically connected to a variable frequency drive, which is itself most often connect to a programmable logic controller.  A typical VFD & PLC installation will often provide a number of feedback parameters for use by the operators.  At a minimum, operators usually have visibility on amerage draw, voltage, line frequency, and motor rpm.  Depending on installation, additional monitoring parameters may include fluid flow, temperature measurements, and pressure readings.  Vertical turbine pumps can be run individually or in tandem within a large array of such pumps.
 
 -   [X] **D:** Multi Unit Pump Stations
 
-![img](./img/pumpsBW.png)   
+[[![img](./img/pumpsBW.png)]]
 
     A vertical turbine pump station represents a system in which multiple vertical turbine pumps are linked together.  These stations draw input water from the same source, and combine the outputs into a common manifold or reservoir depending on design.  During operation, depending on demand, the number of pumps engaged may range from all, to some, or even just one.  These pump stations are usually very large, remotely located, and quite loud when in full operation.  As crop growing cycles are inflexibly linked to annual cycles, and absence of water can permanently alter soil conditions not just reduce crop growth; uptime availability of these systems is considered extremely critical.  Standard operating procedures involve predictive maintenance and rebuilds of individual pumps during non-growing seasons.  Year to year, the operators of these systems will select a number of pumps to be removed and sent to machine shops that specialize in the teardown, inspection, repair, re-assembly, testing, and installation of such pumps.  The down time for a full rebuild is typically measured in months.  Even when scheduled in advance, the rebuild process is time consuming and costly.
 
@@ -82,7 +82,7 @@
     Detection and recognition are two different applications of machine learning often requiring different algorithms as well as specially labeled data sets.  They can though be built on shared archictecture if planned early on in the process.  Typically, detection is a binary classification where recognition is more often a multiclass classification.  An example of detection use in vertical pump stations would be logging whether sound current acoustic emissions are likely within expected ranges or outside of expected ranges.  Likewise, a possible recognition algorithm may attempt to classify detected anomalies as being within such categories as: cavitation, bearing wear, debri ingest, or other mechanical failure.
 
 
-<a id="orgb2f4007"></a>
+<a id="orgdd870e7"></a>
 
 # Background <code>[5/5]</code>
 
@@ -105,18 +105,22 @@
 
     While there exist many proven machine learning methods for anomaly detection, most of those proven methods are built for visual data.  Acoustic data represents a special challenge when attempting to build a machine learning model on it.  One alternative to dealing with native acoustic data to transform it's representation from purely acoustic to a series of image representations.  [ADD CITATION].  One promising approach has been to convert the recorded audio data into Mel-spectrogram visualization of the sound data and then apply conventional image based machine learning methods on these image representations.  The process take the original time-domain recording, applies a Fourier transform on the data to create a frequency-domain representation, discretize the bins from the Fourier transform process into Mel scale filterbanks for human centric perception, convert to log scale, smooth the bin data with a triangular filter, apply an RGB color to the bin values, and finally reassemble them into individual raster image files that will then comprise a new dataset of the acoustic signal but in a visual representation.  These visualized datasets can then be worked on using the same machine learning and deep learning methods already established in the image domain.
 
-![img](./img/wave2mel_200px.png)   
+[[![img](./img/wave2mel_200px.png)]]
 
 -   [X] **C:** Anomaly Detection
 
-![img](./img/featureExtraction.png)   
+    While conventional classification algorithms rely on large training and testing datasets of pre-labeled data, anomaly detection differs in that rather than looking for a match to something it knows; it's looking for a deviation from something known.  Successive deviations may not be related, have been 'seen' before, or even stored and learned from.  One approach testing for deviation has been the development of deep autoencoders (AE).  From [muller2020acoustic] "An AE is a neural network (NN) that first compresses its input into a low dimension representation and subsequently reconstructs the input.  The reconstruction error is taken as the anomaly score since it is assumed that input differing from the training data cannot be reconstructedly precisely".  While the AE principle does work, it also begins to break down on high dimensionality inputs, such as images, due to the curse of dimensionality.  In typical image domain machine learning this is often dealt with by reducing the dimensionality of the input data by lowering the image resolution, lowering the color depth, or reducing the size of each image representation.  Such dimensionality reduction would cause significant loss to our already transformed acoustic signal data.  As an alternative to image degredation, it has been show that deep learning convolutional neural networks (CNN) can be utilized to extract meaningful features from the data first; then with these lower dimensional extracted features, we can build a more stable anomaly detection model while also keeping the input signal as close to the original input as possible.
+
+[[![img](./img/featureExtraction.png)]]
 
 -   [X] **D:** Embedded Systems
 
-![img](./img/tinyML.png)   
+    Most of the work in acoustic anomaly detection is still being produced in lab environments in which compnutation power is often not a limiting factor.  In this project though, our intended deployment immediately forces computational constraints on the process from the very begining.  In order to deploy an automatic system to a production environment that is remotely located, exposed to harsh weather, has limited power availability, and no guarantee of network up-time; the entire model from end to end needs to be one that can consistently operate on a small computational footprint.  Established in 2019, TinyML is a foundation that has taken interest in developing "machine learning architectures, techniques, tools, and approaches capable of performing on-device analytics... at low power.".  Groups such as TinyML have made a number of very recent gains in the use of small devices running on-board machine learning models.  Such a device would be the best choice for a deployment as our.  In particular, microcontrollers (MCU) have been shown to perform nearly as well as CPU based devices.  In some cases MCU's have outperformed small CPU based devices in small IoT / ML deployments.  
+
+[[![img](./img/tinyML.png)]]
 
 
-<a id="org2173330"></a>
+<a id="orgf5f41cf"></a>
 
 # Methods & Materials <code>[0/0]</code>
 
@@ -127,7 +131,7 @@
 -   <https://www.mdpi.com/2079-9292/10/19/2329>
 
 
-<a id="org2f9afca"></a>
+<a id="org8d8fea4"></a>
 
 ## General ML Workflow <code>[0/3]</code>
 
@@ -147,7 +151,7 @@
     [GENERAL DEPLOY CONTENT]
 
 
-<a id="org2beff90"></a>
+<a id="org71de553"></a>
 
 ## Specific ML Workflow <code>[0/3]</code>
 
@@ -182,7 +186,7 @@
     [SPECIFIC DEPLOY METHODS CONTENT]
 
 
-<a id="org923e8e4"></a>
+<a id="org937dd27"></a>
 
 ## Specific Analysis Methods <code>[0/4]</code>
 
@@ -192,27 +196,27 @@
 -   [ ] Discuss End User Interaction, HMI ?
 
 
-<a id="orge439397"></a>
+<a id="orgcd65d55"></a>
 
 # Results
 
 
-<a id="org7defabf"></a>
+<a id="orgabfd948"></a>
 
 # Discussion
 
 
-<a id="org3fb3b4f"></a>
+<a id="org6dc90b7"></a>
 
 # Conclusion
 
 
-<a id="orgd8a1710"></a>
+<a id="org84efa7c"></a>
 
 # Appendix
 
 
-<a id="org72e30db"></a>
+<a id="org6d69ecc"></a>
 
 # Bibliography
 
