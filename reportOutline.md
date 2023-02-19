@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Title <code>[1/1]</code>](#org705750e)
-2.  [Abstract <code>[1/1]</code>](#org3621844)
-3.  [Index Terms <code>[1/1]</code>](#orgc415e8d)
-4.  [Introduction <code>[6/6]</code>](#orge5cec0a)
-5.  [Background <code>[5/5]</code>](#orge234a70)
-6.  [Methods & Materials <code>[0/0]</code>](#org2341b7c)
-    1.  [General ML Workflow <code>[0/3]</code>](#orga0e86e4)
-    2.  [Specific ML Workflow <code>[0/3]</code>](#org00b8036)
-    3.  [Specific Analysis Methods <code>[0/4]</code>](#orga5b1582)
-7.  [Results](#org22acafc)
-8.  [Discussion](#org0fce3a0)
-9.  [Conclusion](#org2b37bc3)
-10. [Appendix](#org071f152)
-11. [Bibliography](#org5044cc5)
+1.  [Title <code>[1/1]</code>](#org21a0576)
+2.  [Abstract <code>[1/1]</code>](#org1bc8caf)
+3.  [Index Terms <code>[1/1]</code>](#orgd544a73)
+4.  [Introduction <code>[6/6]</code>](#orgcbe6c73)
+5.  [Background <code>[5/5]</code>](#org3847efc)
+6.  [Methods & Materials <code>[0/0]</code>](#orgef1b4db)
+    1.  [General ML Workflow <code>[0/3]</code>](#org9f15a80)
+    2.  [Specific ML Workflow <code>[0/3]</code>](#org94c3f55)
+    3.  [Specific Analysis Methods <code>[0/4]</code>](#org23a8a09)
+7.  [Results](#orga270c04)
+8.  [Discussion](#org3ee5130)
+9.  [Conclusion](#org9946d37)
+10. [Appendix](#orgce70406)
+11. [Bibliography](#org403d948)
 
 
 
-<a id="org705750e"></a>
+<a id="org21a0576"></a>
 
 # Title <code>[1/1]</code>
 
@@ -27,7 +27,7 @@
     A proposed automatic in-situ acoustic anomaly detection method for the condition monitoring of remote vertical turbine pump stations
 
 
-<a id="org3621844"></a>
+<a id="org1bc8caf"></a>
 
 # Abstract <code>[1/1]</code>
 
@@ -40,7 +40,7 @@
     What we propose here is an automatic system that can be installed near, but not interfere with, such pump stations, outside of the control loop, which can monitor for and report on operation anomalies through the detection of acoustic anomalies during station operation.
 
 
-<a id="orgc415e8d"></a>
+<a id="orgd544a73"></a>
 
 # Index Terms <code>[1/1]</code>
 
@@ -49,7 +49,7 @@
     Acoustic emission, Anomaly detection, Machine learning, Condition monitoring, Real-time, Signal Processing, Spectrogram, Acoustic signal processing, Embedded systems, 
 
 
-<a id="orge5cec0a"></a>
+<a id="orgcbe6c73"></a>
 
 # Introduction <code>[6/6]</code>
 
@@ -82,7 +82,7 @@
     Detection and recognition are two different applications of machine learning often requiring different algorithms as well as specially labeled data sets.  They can though be built on shared archictecture if planned early on in the process.  Typically, detection is a binary classification where recognition is more often a multiclass classification.  An example of detection use in vertical pump stations would be logging whether sound current acoustic emissions are likely within expected ranges or outside of expected ranges.  Likewise, a possible recognition algorithm may attempt to classify detected anomalies as being within such categories as: cavitation, bearing wear, debri ingest, or other mechanical failure.
 
 
-<a id="orge234a70"></a>
+<a id="org3847efc"></a>
 
 # Background <code>[5/5]</code>
 
@@ -105,7 +105,9 @@
 
     While there exist many proven machine learning methods for anomaly detection, most of those proven methods are built for visual data.  Acoustic data represents a special challenge when attempting to build a machine learning model on it.  One alternative to dealing with native acoustic data to transform it's representation from purely acoustic to a series of image representations.  [ADD CITATION].  One promising approach has been to convert the recorded audio data into Mel-spectrogram visualization of the sound data and then apply conventional image based machine learning methods on these image representations.  The process take the original time-domain recording, applies a Fourier transform on the data to create a frequency-domain representation, discretize the bins from the Fourier transform process into Mel scale filterbanks for human centric perception, convert to log scale, smooth the bin data with a triangular filter, apply an RGB color to the bin values, and finally reassemble them into individual raster image files that will then comprise a new dataset of the acoustic signal but in a visual representation.  These visualized datasets can then be worked on using the same machine learning and deep learning methods already established in the image domain.
 
+//
 ![img](./img/wave2mel_200px.png)
+//
 
 -   [X] **C:** Anomaly Detection
 
@@ -116,7 +118,7 @@
 -   [X] Justify Acoustic Approach / Selection
 
 
-<a id="org2341b7c"></a>
+<a id="orgef1b4db"></a>
 
 # Methods & Materials <code>[0/0]</code>
 
@@ -127,7 +129,7 @@
 -   <https://www.mdpi.com/2079-9292/10/19/2329>
 
 
-<a id="orga0e86e4"></a>
+<a id="org9f15a80"></a>
 
 ## General ML Workflow <code>[0/3]</code>
 
@@ -147,7 +149,7 @@
     [GENERAL DEPLOY CONTENT]
 
 
-<a id="org00b8036"></a>
+<a id="org94c3f55"></a>
 
 ## Specific ML Workflow <code>[0/3]</code>
 
@@ -182,7 +184,7 @@
     [SPECIFIC DEPLOY METHODS CONTENT]
 
 
-<a id="orga5b1582"></a>
+<a id="org23a8a09"></a>
 
 ## Specific Analysis Methods <code>[0/4]</code>
 
@@ -192,27 +194,27 @@
 -   [ ] Discuss End User Interaction, HMI ?
 
 
-<a id="org22acafc"></a>
+<a id="orga270c04"></a>
 
 # Results
 
 
-<a id="org0fce3a0"></a>
+<a id="org3ee5130"></a>
 
 # Discussion
 
 
-<a id="org2b37bc3"></a>
+<a id="org9946d37"></a>
 
 # Conclusion
 
 
-<a id="org071f152"></a>
+<a id="orgce70406"></a>
 
 # Appendix
 
 
-<a id="org5044cc5"></a>
+<a id="org403d948"></a>
 
 # Bibliography
 
