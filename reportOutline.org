@@ -57,8 +57,8 @@ The problem this paper seeks to address is that the operators of such systems ha
 #+BEGIN_EXAMPLE
 Detection and recognition are two different applications of machine learning often requiring different algorithms as well as specially labeled data sets.  They can though be built on shared archictecture if planned early on in the process.  Typically, detection is a binary classification where recognition is more often a multiclass classification.  An example of detection use in vertical pump stations would be logging whether sound current acoustic emissions are likely within expected ranges or outside of expected ranges.  Likewise, a possible recognition algorithm may attempt to classify detected anomalies as being within such categories as: cavitation, bearing wear, debri ingest, or other mechanical failure.
 #+END_EXAMPLE
-* Background [3/3] 
-- [X] General Overview MCM...
+* Background [5/5] 
+- [X] A :: General Overview MCM
 #+begin_example
 There are a number of modern approaches to machine condition monitoring.  In terms of machine condition monitoring, these pump stations represent a family of rotating machinery, that cannot be easily moved or disassembled, must be kept in production as much as possible, and are subject to harsh operating conditions.
 The minimum selection criteria for this project requires that any method used must be\newline
@@ -74,12 +74,22 @@ The minimum selection criteria for this project requires that any method used mu
 Based on that criteria some available technologies include vibration analysis, electrical performance analysis, hydraulic monitoring (flow, pressure, temperature), visual analysis, and acoustic analysis.  The oil and gas industry has developed a number of ultrasonic technologies that can be used to identify the location and propogation of cracks in piping.  The power transmission industry has developed a number of both vibration based and tribology (oil analysis) based methods for monitoring rotating machinery.  Also the aerospace industry has contributed a number of technologies in acoustic sensing such as special microphones used on aircraft during flight testing or in wind-tunnel tests.
 #+end_example
 
-- [X] Specific MCM methods for this case...
-  - Non-destructive
-  - In-situ
-  - PLC safe
-  - Harsh Environment
-  - Minimima install footprint
+- [X] B :: Acoustic Machine Learning
+#+begin_example
+While there exist many proven machine learning methods for anomaly detection, most of those proven methods are built for visual data.  Acoustic data represents a special challenge when attempting to build a machine learning model on it.  One alternative to dealing with native acoustic data to transform it's representation from purely acoustic to a series of image representations.  [ADD CITATION].  One promising approach has been to convert the recorded audio data into Mel-spectrogram visualization of the sound data and then apply conventional image based machine learning methods on these image representations.  The process take the original time-domain recording, applies a Fourier transform on the data to create a frequency-domain representation, discretize the bins from the Fourier transform process into Mel scale filterbanks for human centric perception, convert to log scale, smooth the bin data with a triangular filter, apply an RGB color to the bin values, and finally reassemble them into individual raster image files that will then comprise a new dataset of the acoustic signal but in a visual representation.  These visualized datasets can then be worked on using the same machine learning and deep learning methods already established in the image domain.
+#+end_example
+[[file:./img/wave2mel_200px.png]]
+
+- [X] C :: Anomaly Detection
+#+begin_comment
+While conventional classification algorithms rely on large training and testing datasets of pre-labeled data, anomaly detection differs in that rather than looking for a match to something it knows; it's looking for a deviation from something known.  Successive deviations may not be related, have been 'seen' before, or even stored and learned from.  One approach testing for deviation has been the development of deep autoencoders (AE).  From [muller2020acoustic] "An AE is a neural network (NN) that first compresses its input into a low dimension representation and subsequently reconstructs the input.  The reconstruction error is taken as the anomaly score since it is assumed that input differing from the training data cannot be reconstructedly precisely".  While the AE principle does work, it also begins to break down on high dimensionality inputs, such as images, due to the curse of dimensionality.  In typical image domain machine learning this is often dealt with by reducing the dimensionality of the input data by lowering the image resolution, lowering the color depth, or reducing the size of each image representation.  Such dimensionality reduction would cause significant loss to our already transformed acoustic signal data.  As an alternative to image degredation, it has been show that deep learning convolutional neural networks (CNN) can be utilized to extract meaningful features from the data first; then with these lower dimensional extracted features, we can build a more stable anomaly detection model while also keeping the input signal as close to the original input as possible.
+#+end_comment
+[[file:./img/featureExtraction.png]]
+- [X] D :: Embedded Systems
+#+begin_comment
+Most of the work in acoustic anomaly detection is still being produced in lab environments in which compnutation power is often not a limiting factor.  In this project though, our intended deployment immediately forces computational constraints on the process from the very begining.  In order to deploy an automatic system to a production environment that is remotely located, exposed to harsh weather, has limited power availability, and no guarantee of network up-time; the entire model from end to end needs to be one that can consistently operate on a small computational footprint.  Established in 2019, TinyML is a foundation that has taken interest in developing "machine learning architectures, techniques, tools, and approaches capable of performing on-device analytics... at low power.".  Groups such as TinyML have made a number of very recent gains in the use of small devices running on-board machine learning models.  Such a device would be the best choice for a deployment as our.  In particular, microcontrollers (MCU) have been shown to perform nearly as well as CPU based devices.  In some cases MCU's have outperformed small CPU based devices in small IoT / ML deployments.  
+#+end_comment
+
 - [X] Justify Acoustic Approach / Selection
 * Methods & Materials [0/0]
 + https://cloud.google.com/ai-platform/docs/ml-solutions-overview
@@ -93,7 +103,7 @@ Based on that criteria some available technologies include vibration analysis, e
 [[file:./img/2023-02-17_15h10_17.png]] \\
 #+begin_example
 [GENERAL DATA CONTENT]
-[[file:./img/2023-02-17_15h10_17.png]]
+Recently attempts have been made to standardize the flow of work when starting a machine learning project.  
 #+end_example
 - [ ] Model Engineering
 #+begin_example

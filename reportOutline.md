@@ -1,24 +1,24 @@
 
 # Table of Contents
 
-1.  [Title <code>[1/1]</code>](#org28df129)
-2.  [Abstract <code>[1/1]</code>](#org110f447)
-3.  [Index Terms <code>[1/1]</code>](#org828c680)
-4.  [Introduction <code>[6/6]</code>](#org7ade47a)
-5.  [Background <code>[3/3]</code>](#org8bc41be)
-6.  [Methods & Materials <code>[0/0]</code>](#orgac18694)
-    1.  [General ML Workflow <code>[0/3]</code>](#org97ccce0)
-    2.  [Specific ML Workflow <code>[0/3]</code>](#orgeab1bf9)
-    3.  [Specific Analysis Methods <code>[0/4]</code>](#org2e9fd03)
-7.  [Results](#org35322e8)
-8.  [Discussion](#orgfc0b0d6)
-9.  [Conclusion](#org4858c89)
-10. [Appendix](#orgf5fca76)
-11. [Bibliography](#orgba10f67)
+1.  [Title <code>[1/1]</code>](#org705750e)
+2.  [Abstract <code>[1/1]</code>](#org3621844)
+3.  [Index Terms <code>[1/1]</code>](#orgc415e8d)
+4.  [Introduction <code>[6/6]</code>](#orge5cec0a)
+5.  [Background <code>[5/5]</code>](#orge234a70)
+6.  [Methods & Materials <code>[0/0]</code>](#org2341b7c)
+    1.  [General ML Workflow <code>[0/3]</code>](#orga0e86e4)
+    2.  [Specific ML Workflow <code>[0/3]</code>](#org00b8036)
+    3.  [Specific Analysis Methods <code>[0/4]</code>](#orga5b1582)
+7.  [Results](#org22acafc)
+8.  [Discussion](#org0fce3a0)
+9.  [Conclusion](#org2b37bc3)
+10. [Appendix](#org071f152)
+11. [Bibliography](#org5044cc5)
 
 
 
-<a id="org28df129"></a>
+<a id="org705750e"></a>
 
 # Title <code>[1/1]</code>
 
@@ -27,7 +27,7 @@
     A proposed automatic in-situ acoustic anomaly detection method for the condition monitoring of remote vertical turbine pump stations
 
 
-<a id="org110f447"></a>
+<a id="org3621844"></a>
 
 # Abstract <code>[1/1]</code>
 
@@ -40,7 +40,7 @@
     What we propose here is an automatic system that can be installed near, but not interfere with, such pump stations, outside of the control loop, which can monitor for and report on operation anomalies through the detection of acoustic anomalies during station operation.
 
 
-<a id="org828c680"></a>
+<a id="orgc415e8d"></a>
 
 # Index Terms <code>[1/1]</code>
 
@@ -49,7 +49,7 @@
     Acoustic emission, Anomaly detection, Machine learning, Condition monitoring, Real-time, Signal Processing, Spectrogram, Acoustic signal processing, Embedded systems, 
 
 
-<a id="org7ade47a"></a>
+<a id="orge5cec0a"></a>
 
 # Introduction <code>[6/6]</code>
 
@@ -82,11 +82,11 @@
     Detection and recognition are two different applications of machine learning often requiring different algorithms as well as specially labeled data sets.  They can though be built on shared archictecture if planned early on in the process.  Typically, detection is a binary classification where recognition is more often a multiclass classification.  An example of detection use in vertical pump stations would be logging whether sound current acoustic emissions are likely within expected ranges or outside of expected ranges.  Likewise, a possible recognition algorithm may attempt to classify detected anomalies as being within such categories as: cavitation, bearing wear, debri ingest, or other mechanical failure.
 
 
-<a id="org8bc41be"></a>
+<a id="orge234a70"></a>
 
-# Background <code>[3/3]</code>
+# Background <code>[5/5]</code>
 
--   [X] General Overview MCM&#x2026;
+-   [X] **A:** General Overview MCM
 
     There are a number of modern approaches to machine condition monitoring.  In terms of machine condition monitoring, these pump stations represent a family of rotating machinery, that cannot be easily moved or disassembled, must be kept in production as much as possible, and are subject to harsh operating conditions.
     The minimum selection criteria for this project requires that any method used must be\newline
@@ -101,16 +101,22 @@
     
     Based on that criteria some available technologies include vibration analysis, electrical performance analysis, hydraulic monitoring (flow, pressure, temperature), visual analysis, and acoustic analysis.  The oil and gas industry has developed a number of ultrasonic technologies that can be used to identify the location and propogation of cracks in piping.  The power transmission industry has developed a number of both vibration based and tribology (oil analysis) based methods for monitoring rotating machinery.  Also the aerospace industry has contributed a number of technologies in acoustic sensing such as special microphones used on aircraft during flight testing or in wind-tunnel tests.
 
--   [X] Specific MCM methods for this case&#x2026;
-    -   Non-destructive
-    -   In-situ
-    -   PLC safe
-    -   Harsh Environment
-    -   Minimima install footprint
+-   [X] **B:** Acoustic Machine Learning
+
+    While there exist many proven machine learning methods for anomaly detection, most of those proven methods are built for visual data.  Acoustic data represents a special challenge when attempting to build a machine learning model on it.  One alternative to dealing with native acoustic data to transform it's representation from purely acoustic to a series of image representations.  [ADD CITATION].  One promising approach has been to convert the recorded audio data into Mel-spectrogram visualization of the sound data and then apply conventional image based machine learning methods on these image representations.  The process take the original time-domain recording, applies a Fourier transform on the data to create a frequency-domain representation, discretize the bins from the Fourier transform process into Mel scale filterbanks for human centric perception, convert to log scale, smooth the bin data with a triangular filter, apply an RGB color to the bin values, and finally reassemble them into individual raster image files that will then comprise a new dataset of the acoustic signal but in a visual representation.  These visualized datasets can then be worked on using the same machine learning and deep learning methods already established in the image domain.
+
+![img](./img/wave2mel_200px.png)
+
+-   [X] **C:** Anomaly Detection
+
+![img](./img/featureExtraction.png)
+
+-   [X] **D:** Embedded Systems
+
 -   [X] Justify Acoustic Approach / Selection
 
 
-<a id="orgac18694"></a>
+<a id="org2341b7c"></a>
 
 # Methods & Materials <code>[0/0]</code>
 
@@ -121,7 +127,7 @@
 -   <https://www.mdpi.com/2079-9292/10/19/2329>
 
 
-<a id="org97ccce0"></a>
+<a id="orga0e86e4"></a>
 
 ## General ML Workflow <code>[0/3]</code>
 
@@ -130,7 +136,7 @@
 ![img](./img/2023-02-17_15h10_17.png)   
 
     [GENERAL DATA CONTENT]
-    [[file:./img/2023-02-17_15h10_17.png]]
+    Recently attempts have been made to standardize the flow of work when starting a machine learning project.  
 
 -   [ ] Model Engineering
 
@@ -141,7 +147,7 @@
     [GENERAL DEPLOY CONTENT]
 
 
-<a id="orgeab1bf9"></a>
+<a id="org00b8036"></a>
 
 ## Specific ML Workflow <code>[0/3]</code>
 
@@ -176,7 +182,7 @@
     [SPECIFIC DEPLOY METHODS CONTENT]
 
 
-<a id="org2e9fd03"></a>
+<a id="orga5b1582"></a>
 
 ## Specific Analysis Methods <code>[0/4]</code>
 
@@ -186,27 +192,27 @@
 -   [ ] Discuss End User Interaction, HMI ?
 
 
-<a id="org35322e8"></a>
+<a id="org22acafc"></a>
 
 # Results
 
 
-<a id="orgfc0b0d6"></a>
+<a id="org0fce3a0"></a>
 
 # Discussion
 
 
-<a id="org4858c89"></a>
+<a id="org2b37bc3"></a>
 
 # Conclusion
 
 
-<a id="orgf5fca76"></a>
+<a id="org071f152"></a>
 
 # Appendix
 
 
-<a id="orgba10f67"></a>
+<a id="org5044cc5"></a>
 
 # Bibliography
 
